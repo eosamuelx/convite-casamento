@@ -20,6 +20,7 @@ body {
 
 img {
     max-width: 100%;
+    display: block;
 }
 
 a {
@@ -229,19 +230,14 @@ a {
 
 .fotos-dia {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
 
     margin: 45px auto 55px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    gap: 16px;
 }
 
 .foto {
     width: 100%;
-    height: 380px;
+    height: 500px;
 
     overflow: hidden;
 
@@ -255,8 +251,6 @@ a {
 .foto img {
     width: 100%;
     height: 100%;
-
-    display: block;
 
     object-fit: cover;
 
@@ -356,7 +350,6 @@ a {
 
 .informacao-icone i {
     font-size: 24px;
-
     color: rgb(250, 208, 159);
 }
 
@@ -417,109 +410,6 @@ a {
 .botao-mapa:hover {
     background: #f8f7f0;
     color: #4a5435;
-}
-
-
-
-/* ========================================
-   5. LISTA DE PRESENTES
-======================================== */
-
-.presentes {
-    background: #f8f7f0;
-    padding: 90px 25px;
-    text-align: center;
-}
-
-.presentes-conteudo {
-    width: 100%;
-    max-width: 650px;
-    margin: 0 auto;
-}
-
-.presentes-subtitulo {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    color: #4a5435;
-    margin-bottom: 15px;
-}
-
-.presentes h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    font-weight: 500;
-    color: #4a5435;
-    margin: 0 0 25px;
-}
-
-.presentes-texto {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    line-height: 1.9;
-    color: #4a5435;
-    max-width: 500px;
-    margin: 0 auto 35px;
-}
-
-.botao-presentes {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    padding: 15px 28px;
-
-    background: #aeb863;
-    color: #f8f7f0;
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-
-    text-decoration: none;
-    border-radius: 3px;
-
-    transition: all 0.3s ease;
-}
-
-.botao-presentes i {
-    font-size: 14px;
-}
-
-.botao-presentes:hover {
-    background: #4a5435;
-    transform: translateY(-2px);
-}
-
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 600px) {
-
-    .presentes {
-        padding: 70px 22px;
-    }
-
-    .presentes h2 {
-        font-size: 36px;
-    }
-
-    .presentes-texto {
-        font-size: 13px;
-        line-height: 1.8;
-    }
-
-    .botao-presentes {
-        width: 100%;
-        max-width: 280px;
-        padding: 15px 20px;
-    }
-
 }
 
 
@@ -629,7 +519,110 @@ a {
 
 
 /* ========================================
-   5. ENCERRAMENTO
+   5. LISTA DE PRESENTES
+======================================== */
+
+.presentes {
+    width: 100%;
+
+    background: #f8f7f0;
+    color: #4a5435;
+
+    padding: 90px 25px;
+
+    text-align: center;
+}
+
+.presentes-conteudo {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto;
+}
+
+.presentes-subtitulo {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color: #4a5435;
+
+    margin-bottom: 15px;
+}
+
+.presentes h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 44px;
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    color: #4a5435;
+
+    margin: 0 0 25px;
+}
+
+.presentes-texto {
+    width: 100%;
+    max-width: 500px;
+
+    margin: 0 auto 35px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 1.9;
+
+    color: #4a5435;
+}
+
+.botao-presentes {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 15px 28px;
+
+    background: #aeb863;
+    color: #f8f7f0;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    border-radius: 3px;
+
+    transition: all 0.3s ease;
+}
+
+.botao-presentes i {
+    font-size: 14px;
+}
+
+.botao-presentes:hover {
+    background: #4a5435;
+    color: #f8f7f0;
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   6. ENCERRAMENTO
 ======================================== */
 
 .encerramento {
@@ -660,7 +653,6 @@ a {
     height: 100%;
 
     object-fit: cover;
-
     object-position: center;
 }
 
@@ -733,7 +725,9 @@ a {
 @media (max-width: 600px) {
 
 
-    /* CAPA */
+    /* ====================================
+       CAPA
+    ==================================== */
 
     .hero {
         min-height: 600px;
@@ -762,7 +756,9 @@ a {
     }
 
 
-    /* DIA */
+    /* ====================================
+       DIA
+    ==================================== */
 
     .dia {
         padding: 80px 18px;
@@ -778,13 +774,12 @@ a {
     }
 
 
-    /* FOTOS */
+    /* ====================================
+       FOTO
+    ==================================== */
 
     .fotos-dia {
-        display: flex;
-        flex-direction: column;
-
-        gap: 14px;
+        max-width: 100%;
 
         margin: 40px auto 45px;
     }
@@ -796,7 +791,9 @@ a {
     }
 
 
-    /* PRESENÇA */
+    /* ====================================
+       PRESENÇA
+    ==================================== */
 
     .presenca {
         padding: 80px 18px;
@@ -819,18 +816,9 @@ a {
     }
 
 
-    /* LISTA DE PRESENTES */
-
-    .lista-presentes {
-        padding: 30px 18px;
-    }
-
-    .lista-presentes h3 {
-        font-size: 32px;
-    }
-
-
-    /* CONFIRMAÇÃO */
+    /* ====================================
+       CONFIRMAÇÃO
+    ==================================== */
 
     .confirmacao {
         padding: 80px 18px;
@@ -845,7 +833,34 @@ a {
     }
 
 
-    /* ENCERRAMENTO */
+    /* ====================================
+       LISTA DE PRESENTES
+    ==================================== */
+
+    .presentes {
+        padding: 70px 22px;
+    }
+
+    .presentes h2 {
+        font-size: 38px;
+    }
+
+    .presentes-texto {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .botao-presentes {
+        width: 100%;
+        max-width: 280px;
+
+        padding: 15px 20px;
+    }
+
+
+    /* ====================================
+       ENCERRAMENTO
+    ==================================== */
 
     .encerramento {
         min-height: 600px;
