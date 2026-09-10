@@ -16,6 +16,7 @@ body {
     background: #f8f7f0;
     color: #4a5435;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
 
 img {
@@ -48,12 +49,6 @@ a {
     animation-delay: 0.6s;
 }
 
-.animar-scroll {
-    animation: aparecerSuave 1s ease both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 30%;
-}
-
 @keyframes aparecer {
 
     from {
@@ -68,11 +63,30 @@ a {
 
 }
 
-@keyframes aparecerSuave {
+
+/* ========================================
+   ANIMAÇÃO AO ROLAR
+======================================== */
+
+.animar-scroll {
+    opacity: 1;
+}
+
+@supports (animation-timeline: view()) {
+
+    .animar-scroll {
+        animation: aparecer-scroll linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+    }
+
+}
+
+@keyframes aparecer-scroll {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(35px);
     }
 
     to {
@@ -90,16 +104,12 @@ a {
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh;
-    min-height: 650px;
-
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
-
-    color: #f8f7f0;
+    background: #4a5435;
 }
 
 .hero-foto {
@@ -108,60 +118,60 @@ a {
 
     background-image:
         linear-gradient(
-            rgba(40, 45, 30, 0.40),
-            rgba(40, 45, 30, 0.55)
+            rgba(35, 40, 25, 0.32),
+            rgba(35, 40, 25, 0.48)
         ),
         url("img/casal.jpg");
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    transform: scale(1.02);
 }
 
 .hero-conteudo {
     position: relative;
     z-index: 2;
 
-    width: 90%;
-    max-width: 700px;
+    width: 100%;
+    padding: 30px 24px;
 
     text-align: center;
-
-    padding: 30px;
+    color: #f8f7f0;
 }
 
 .hero-frase {
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 4px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    line-height: 1.6;
 
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .hero h1 {
     font-family: 'Allura', cursive;
-    font-size: clamp(65px, 12vw, 120px);
+    font-size: clamp(58px, 18vw, 90px);
     font-weight: 400;
-    line-height: 1;
+    line-height: 0.95;
+
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
 }
 
 .linha {
-    width: 80px;
+    width: 55px;
     height: 1px;
 
-    margin: 30px auto;
-
     background: #f8f7f0;
+
+    margin: 28px auto;
 }
 
 .hero-data {
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
 }
 
 
@@ -170,53 +180,96 @@ a {
 ======================================== */
 
 .dia {
+    width: 100%;
     background: #aeb863;
-    color: #f8f7f0;
+    color: #4a5435;
 
-    padding: 100px 20px;
+    padding: 80px 22px 90px;
 }
 
 .dia-conteudo {
     width: 100%;
-    max-width: 850px;
-
+    max-width: 760px;
     margin: 0 auto;
+}
 
+
+/* CABEÇALHO */
+
+.dia-cabecalho {
     text-align: center;
+    margin-bottom: 55px;
 }
 
 .dia-subtitulo {
     font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-
+    font-size: 10px;
+    font-weight: 600;
     letter-spacing: 3px;
 
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .dia h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 7vw, 65px);
+    font-size: clamp(42px, 12vw, 60px);
+    font-weight: 500;
+    line-height: 0.95;
+
+    color: #4a5435;
+}
+
+
+/* ========================================
+   BLOCOS DO DIA
+======================================== */
+
+.dia-bloco {
+    position: relative;
+
+    display: flex;
+    gap: 18px;
+
+    width: 100%;
+
+    padding: 24px 20px;
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(74, 84, 53, 0.25);
+    background: rgba(248, 247, 240, 0.28);
+}
+
+.dia-bloco-numero {
+    flex-shrink: 0;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
     font-weight: 500;
 
-    line-height: 1.1;
+    color: #4a5435;
+}
 
-    margin-bottom: 35px;
+.dia-bloco-conteudo {
+    flex: 1;
+}
+
+.dia-bloco-titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
 }
 
 .dia-texto {
-    width: 100%;
-    max-width: 650px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.85;
 
-    margin: 0 auto;
-}
-
-.dia-texto p {
-    font-size: 14px;
-    line-height: 2;
-
-    margin-bottom: 22px;
+    color: #4a5435;
 }
 
 .dia-texto strong {
@@ -225,27 +278,25 @@ a {
 
 
 /* ========================================
-   FOTOS DO DIA
+   FOTO DO DIA
 ======================================== */
 
 .fotos-dia {
     width: 100%;
-    max-width: 500px;
 
-    margin: 45px auto 55px;
+    margin: 40px auto;
 }
 
 .foto {
     width: 100%;
-    height: 500px;
+    height: 430px;
 
     overflow: hidden;
 
-    border-radius: 3px;
-    border: 4px solid #f8f7f0;
+    border: 5px solid #f8f7f0;
 
     box-shadow:
-        0 8px 20px rgba(74, 84, 53, 0.15);
+        0 12px 30px rgba(74, 84, 53, 0.18);
 }
 
 .foto img {
@@ -254,11 +305,41 @@ a {
 
     object-fit: cover;
 
-    transition: transform 0.7s ease;
+    transition: transform 0.8s ease;
 }
 
 .foto:hover img {
-    transform: scale(1.04);
+    transform: scale(1.03);
+}
+
+
+/* ========================================
+   FRASE FINAL DO DIA
+======================================== */
+
+.dia-frase-final {
+    text-align: center;
+
+    padding: 35px 15px 5px;
+}
+
+.dia-frase-icone {
+    display: block;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+
+    margin-bottom: 12px;
+}
+
+.dia-frase-final p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-style: italic;
+    line-height: 1.4;
+
+    max-width: 560px;
+    margin: 0 auto;
 }
 
 
@@ -267,48 +348,60 @@ a {
 ======================================== */
 
 .presenca {
-    background: #aeb863;
+    width: 100%;
+
+    background: #4a5435;
     color: #f8f7f0;
 
-    padding: 100px 20px;
+    padding: 85px 22px 90px;
 }
 
 .presenca-conteudo {
     width: 100%;
-    max-width: 800px;
-
+    max-width: 760px;
     margin: 0 auto;
+}
 
+
+/* CABEÇALHO */
+
+.presenca-cabecalho {
     text-align: center;
+
+    margin-bottom: 55px;
 }
 
 .presenca-subtitulo {
-    font-size: 11px;
-    font-weight: 500;
-
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
     letter-spacing: 3px;
 
-    margin-bottom: 15px;
+    color: #dfe2c7;
+
+    margin-bottom: 16px;
 }
 
 .presenca h2 {
     font-family: 'Cormorant Garamond', serif;
-
-    font-size: clamp(42px, 7vw, 65px);
+    font-size: clamp(42px, 12vw, 60px);
     font-weight: 500;
+    line-height: 0.98;
 
-    line-height: 1.1;
+    color: #f8f7f0;
 
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .presenca-texto {
-    max-width: 620px;
+    max-width: 580px;
+    margin: 0 auto;
 
-    margin: 0 auto 55px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.85;
 
-    font-size: 14px;
-    line-height: 2;
+    color: #dfe2c7;
 }
 
 
@@ -317,67 +410,100 @@ a {
 ======================================== */
 
 .informacoes {
-    width: 100%;
-    max-width: 600px;
-
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
+
+
+/* ========================================
+   BLOCO DE INFORMAÇÃO
+======================================== */
 
 .informacao {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    gap: 18px;
 
-    padding: 30px 20px;
+    width: 100%;
 
-    border-top: 1px solid rgba(248, 247, 240, 0.35);
+    padding: 25px 20px;
+
+    background: rgba(248, 247, 240, 0.08);
+
+    border: 1px solid rgba(223, 226, 199, 0.25);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
-.informacao:last-child {
-    border-bottom: 1px solid rgba(248, 247, 240, 0.35);
+.informacao:hover {
+    background: rgba(248, 247, 240, 0.13);
+    transform: translateY(-2px);
 }
+
+
+/* ÍCONE */
 
 .informacao-icone {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 45px;
-    height: 45px;
+    border: 1px solid rgba(223, 226, 199, 0.5);
 
-    margin-bottom: 12px;
+    border-radius: 50%;
 }
 
 .informacao-icone i {
-    font-size: 24px;
-    color: rgb(250, 208, 159);
+    font-size: 16px;
+    color: #dfe2c7;
+}
+
+
+/* CONTEÚDO */
+
+.informacao-conteudo {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
 }
 
 .informacao-titulo {
+    font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     font-weight: 600;
+    letter-spacing: 2px;
 
-    letter-spacing: 3px;
+    color: #dfe2c7;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .informacao-detalhe {
     font-family: 'Cormorant Garamond', serif;
-
-    font-size: 26px;
+    font-size: 25px;
     font-weight: 500;
+    line-height: 1.1;
 
-    line-height: 1.2;
+    color: #f8f7f0;
+
+    margin-bottom: 8px;
 }
 
 .informacao-endereco {
-    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.7;
 
-    font-size: 12px;
-    line-height: 1.8;
-
-    opacity: 0.9;
+    color: #dfe2c7;
 }
 
 
@@ -389,43 +515,66 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     gap: 8px;
 
-    margin-top: 18px;
+    width: fit-content;
 
-    padding: 12px 22px;
+    margin-top: 16px;
+    padding: 11px 17px;
 
-    border: 1px solid rgba(248, 247, 240, 0.6);
-    border-radius: 3px;
+    background: #aeb863;
+    color: #4a5435;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
 
     text-decoration: none;
 
-    font-size: 11px;
-    font-weight: 600;
+    border-radius: 2px;
 
     transition: all 0.3s ease;
 }
 
+.botao-mapa i {
+    font-size: 11px;
+}
+
 .botao-mapa:hover {
     background: #f8f7f0;
-    color: #4a5435;
+    transform: translateY(-2px);
 }
 
 
 /* ========================================
-   FRASE FINAL PRESENÇA
+   FRASE FINAL DA PRESENÇA
 ======================================== */
 
 .presenca-final {
-    margin-top: 55px;
+    text-align: center;
+
+    padding: 50px 10px 0;
+}
+
+.presenca-final-detalhe {
+    display: block;
 
     font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
 
+    color: #aeb863;
+
+    margin-bottom: 10px;
+}
+
+.presenca-final p {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 24px;
     font-style: italic;
+    line-height: 1.4;
 
-    line-height: 1.5;
+    color: #f8f7f0;
 }
 
 
@@ -434,46 +583,67 @@ a {
 ======================================== */
 
 .confirmacao {
-    background: #4a5435;
-    color: #f8f7f0;
+    width: 100%;
 
-    padding: 100px 20px;
+    background: #f8f7f0;
+    color: #4a5435;
+
+    padding: 85px 22px;
 }
 
 .confirmacao-conteudo {
     width: 100%;
-    max-width: 650px;
-
+    max-width: 620px;
     margin: 0 auto;
 
     text-align: center;
 }
 
-.confirmacao-subtitulo {
-    font-size: 11px;
-    font-weight: 500;
 
+/* CABEÇALHO */
+
+.confirmacao-cabecalho {
+    margin-bottom: 30px;
+}
+
+.confirmacao-subtitulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
     letter-spacing: 3px;
+
+    color: #aeb863;
 
     margin-bottom: 15px;
 }
 
 .confirmacao h2 {
     font-family: 'Cormorant Garamond', serif;
-
-    font-size: clamp(42px, 7vw, 65px);
+    font-size: clamp(42px, 12vw, 58px);
     font-weight: 500;
+    line-height: 1;
 
-    line-height: 1.1;
-
-    margin-bottom: 30px;
+    color: #4a5435;
 }
 
-.confirmacao-texto {
-    font-size: 14px;
-    line-height: 2;
 
-    margin-bottom: 35px;
+/* MENSAGEM */
+
+.confirmacao-mensagem {
+    max-width: 500px;
+    margin: 0 auto 35px;
+}
+
+.confirmacao-mensagem p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.85;
+
+    margin-bottom: 12px;
+}
+
+.confirmacao-mensagem p:last-child {
+    margin-bottom: 0;
 }
 
 
@@ -481,125 +651,134 @@ a {
    BOTÃO CONFIRMAR
 ======================================== */
 
+.confirmacao-acao {
+    display: flex;
+    justify-content: center;
+}
+
 .botao-confirmar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     gap: 10px;
 
-    padding: 15px 28px;
+    width: 100%;
+    max-width: 300px;
 
-    background: #f8f7f0;
-    color: #4a5435;
+    padding: 17px 25px;
+
+    background: #aeb863;
+    color: #f8f7f0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
 
     text-decoration: none;
-
-    font-size: 11px;
-    font-weight: 600;
 
     border-radius: 3px;
 
     transition: all 0.3s ease;
 }
 
-.botao-confirmar:hover {
-    transform: translateY(-2px);
-
-    background: rgb(250, 208, 159);
+.botao-confirmar i {
+    font-size: 13px;
 }
 
-.confirmacao-observacao {
-    margin-top: 25px;
-
-    font-size: 11px;
-
-    opacity: 0.75;
+.botao-confirmar:hover {
+    background: #4a5435;
+    transform: translateY(-2px);
 }
 
 
 /* ========================================
-   5. LISTA DE PRESENTES
+   5. PRESENTES
 ======================================== */
 
 .presentes {
     width: 100%;
 
-    background: #f8f7f0;
+    background: #aeb863;
     color: #4a5435;
 
-    padding: 90px 25px;
+    padding: 80px 22px 90px;
 
     text-align: center;
 }
 
 .presentes-conteudo {
     width: 100%;
-    max-width: 650px;
-
+    max-width: 620px;
     margin: 0 auto;
+}
+
+
+/* CABEÇALHO */
+
+.presentes-cabecalho {
+    margin-bottom: 25px;
 }
 
 .presentes-subtitulo {
     font-family: 'Montserrat', sans-serif;
-
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-
     letter-spacing: 3px;
-
-    color: #4a5435;
 
     margin-bottom: 15px;
 }
 
 .presentes h2 {
     font-family: 'Cormorant Garamond', serif;
-
-    font-size: 44px;
+    font-size: clamp(42px, 12vw, 58px);
     font-weight: 500;
-
-    line-height: 1.1;
+    line-height: 1;
 
     color: #4a5435;
-
-    margin: 0 0 25px;
 }
 
-.presentes-texto {
-    width: 100%;
+
+/* MENSAGEM */
+
+.presentes-mensagem {
     max-width: 500px;
+    margin: 0 auto 32px;
+}
 
-    margin: 0 auto 35px;
-
+.presentes-mensagem p {
     font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.85;
+}
 
-    font-size: 14px;
-    font-weight: 400;
 
-    line-height: 1.9;
+/* ========================================
+   BOTÃO PRESENTES
+======================================== */
 
-    color: #4a5435;
+.presentes-acao {
+    display: flex;
+    justify-content: center;
 }
 
 .botao-presentes {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 10px;
 
-    padding: 15px 28px;
+    width: 100%;
+    max-width: 300px;
 
-    background: #aeb863;
+    padding: 17px 25px;
+
+    background: #4a5435;
     color: #f8f7f0;
 
     font-family: 'Montserrat', sans-serif;
-
     font-size: 12px;
     font-weight: 600;
-
     letter-spacing: 1px;
 
     text-decoration: none;
@@ -614,8 +793,8 @@ a {
 }
 
 .botao-presentes:hover {
-    background: #4a5435;
-    color: #f8f7f0;
+    background: #f8f7f0;
+    color: #4a5435;
 
     transform: translateY(-2px);
 }
@@ -629,19 +808,19 @@ a {
     position: relative;
 
     width: 100%;
-    height: 100vh;
-    min-height: 650px;
-
-    overflow: hidden;
+    min-height: 100svh;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: #f8f7f0;
+    overflow: hidden;
 
-    text-align: center;
+    background: #4a5435;
 }
+
+
+/* FOTO */
 
 .encerramento-foto {
     position: absolute;
@@ -656,223 +835,248 @@ a {
     object-position: center;
 }
 
+
+/* SOBREPOSIÇÃO */
+
 .encerramento-overlay {
     position: absolute;
     inset: 0;
 
     background:
-        rgba(40, 45, 30, 0.58);
+        linear-gradient(
+            rgba(40, 45, 28, 0.38),
+            rgba(40, 45, 28, 0.65)
+        );
 }
+
+
+/* CONTEÚDO */
 
 .encerramento-conteudo {
     position: relative;
     z-index: 2;
 
-    width: 90%;
-    max-width: 700px;
+    width: 100%;
 
-    padding: 30px;
+    padding: 30px 22px;
+
+    text-align: center;
+
+    color: #f8f7f0;
 }
 
 .encerramento-frase {
-    font-size: 11px;
-    font-weight: 500;
-
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
     letter-spacing: 3px;
+    line-height: 1.7;
 
-    margin-bottom: 25px;
+    max-width: 300px;
+    margin: 0 auto 22px;
 }
 
 .encerramento-linha {
-    width: 70px;
+    width: 45px;
     height: 1px;
 
-    margin: 25px auto;
-
     background: #f8f7f0;
+
+    margin: 0 auto 25px;
 }
 
 .encerramento h2 {
     font-family: 'Allura', cursive;
-
-    font-size: clamp(60px, 11vw, 110px);
+    font-size: clamp(60px, 19vw, 95px);
     font-weight: 400;
+    line-height: 0.95;
 
-    line-height: 1;
+    margin-bottom: 25px;
+
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
 }
 
 .encerramento-data {
-    margin-top: 25px;
-
+    font-family: 'Montserrat', sans-serif;
     font-size: 12px;
-    letter-spacing: 5px;
+    font-weight: 500;
+    letter-spacing: 4px;
+
+    margin-bottom: 35px;
 }
 
 .encerramento-final {
-    margin-top: 30px;
-
     font-family: 'Cormorant Garamond', serif;
-
-    font-size: 25px;
+    font-size: 27px;
     font-style: italic;
+
+    line-height: 1.3;
 }
 
 
 /* ========================================
-   RESPONSIVIDADE
+   TABLET
 ======================================== */
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
 
-
-    /* ====================================
-       CAPA
-    ==================================== */
-
-    .hero {
-        min-height: 600px;
+    .dia,
+    .presenca,
+    .confirmacao,
+    .presentes {
+        padding-left: 35px;
+        padding-right: 35px;
     }
 
-    .hero-foto {
-        background-position: center;
-    }
-
-    .hero-conteudo {
-        padding: 20px;
-    }
-
-    .hero-frase {
-        font-size: 9px;
-        letter-spacing: 3px;
-    }
-
-    .hero h1 {
-        font-size: 70px;
-    }
-
-    .hero-data {
-        font-size: 11px;
-        letter-spacing: 4px;
-    }
-
-
-    /* ====================================
-       DIA
-    ==================================== */
-
-    .dia {
-        padding: 80px 18px;
-    }
-
-    .dia h2 {
-        font-size: 44px;
-    }
-
-    .dia-texto p {
-        font-size: 13px;
-        line-height: 1.9;
-    }
-
-
-    /* ====================================
-       FOTO
-    ==================================== */
-
-    .fotos-dia {
-        max-width: 100%;
-
-        margin: 40px auto 45px;
+    .dia-bloco {
+        padding: 28px 25px;
     }
 
     .foto {
-        height: 430px;
+        height: 500px;
+    }
 
-        border: 4px solid #f8f7f0;
+    .informacoes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .informacao-local,
+    .informacao-comanda {
+        min-height: 190px;
+    }
+
+}
+
+
+/* ========================================
+   DESKTOP
+======================================== */
+
+@media (min-width: 900px) {
+
+    .hero-conteudo {
+        padding: 40px;
+    }
+
+    .hero-frase {
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 100px;
+    }
+
+    .hero-data {
+        font-size: 14px;
     }
 
 
-    /* ====================================
-       PRESENÇA
-    ==================================== */
+    /* DIA */
+
+    .dia {
+        padding-top: 110px;
+        padding-bottom: 120px;
+    }
+
+    .dia-cabecalho {
+        margin-bottom: 70px;
+    }
+
+    .dia-bloco {
+        padding: 30px;
+    }
+
+    .dia-texto {
+        font-size: 15px;
+    }
+
+    .fotos-dia {
+        max-width: 520px;
+        margin: 55px auto;
+    }
+
+    .foto {
+        height: 570px;
+    }
+
+
+    /* PRESENÇA */
 
     .presenca {
-        padding: 80px 18px;
+        padding-top: 110px;
+        padding-bottom: 120px;
     }
 
-    .presenca h2 {
-        font-size: 44px;
-    }
-
-    .presenca-texto {
-        font-size: 13px;
+    .informacoes {
+        gap: 18px;
     }
 
     .informacao {
-        padding: 28px 15px;
+        padding: 28px;
+    }
+
+
+    /* CONFIRMAÇÃO */
+
+    .confirmacao {
+        padding-top: 110px;
+        padding-bottom: 110px;
+    }
+
+
+    /* PRESENTES */
+
+    .presentes {
+        padding-top: 100px;
+        padding-bottom: 110px;
+    }
+
+
+    /* ENCERRAMENTO */
+
+    .encerramento h2 {
+        font-size: 110px;
+    }
+
+}
+
+
+/* ========================================
+   TELAS MUITO PEQUENAS
+======================================== */
+
+@media (max-width: 360px) {
+
+    .hero h1 {
+        font-size: 54px;
+    }
+
+    .dia h2,
+    .presenca h2,
+    .confirmacao h2,
+    .presentes h2 {
+        font-size: 39px;
+    }
+
+    .dia-texto,
+    .presenca-texto,
+    .confirmacao-mensagem p,
+    .presentes-mensagem p {
+        font-size: 14px;
+    }
+
+    .informacao {
+        padding: 20px 16px;
     }
 
     .informacao-detalhe {
-        font-size: 24px;
-    }
-
-
-    /* ====================================
-       CONFIRMAÇÃO
-    ==================================== */
-
-    .confirmacao {
-        padding: 80px 18px;
-    }
-
-    .confirmacao h2 {
-        font-size: 44px;
-    }
-
-    .confirmacao-texto {
-        font-size: 13px;
-    }
-
-
-    /* ====================================
-       LISTA DE PRESENTES
-    ==================================== */
-
-    .presentes {
-        padding: 70px 22px;
-    }
-
-    .presentes h2 {
-        font-size: 38px;
-    }
-
-    .presentes-texto {
-        font-size: 13px;
-        line-height: 1.8;
-    }
-
-    .botao-presentes {
-        width: 100%;
-        max-width: 280px;
-
-        padding: 15px 20px;
-    }
-
-
-    /* ====================================
-       ENCERRAMENTO
-    ==================================== */
-
-    .encerramento {
-        min-height: 600px;
-    }
-
-    .encerramento-frase {
-        font-size: 9px;
-        letter-spacing: 2.5px;
+        font-size: 23px;
     }
 
     .encerramento h2 {
-        font-size: 70px;
+        font-size: 57px;
     }
 
 }
