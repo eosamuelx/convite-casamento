@@ -420,81 +420,106 @@ a {
 }
 
 
+
 /* ========================================
-   LISTA DE PRESENTES
+   5. LISTA DE PRESENTES
 ======================================== */
 
-.lista-presentes {
-    max-width: 600px;
-
-    margin: 60px auto 20px;
-
-    padding: 35px 25px;
-
-    border: 1px solid rgba(248, 247, 240, 0.35);
+.presentes {
+    background: #f8f7f0;
+    padding: 90px 25px;
+    text-align: center;
 }
 
-.lista-presentes-titulo {
-    font-size: 10px;
-    font-weight: 500;
+.presentes-conteudo {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
 
+.presentes-subtitulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
     letter-spacing: 3px;
-
-    margin-bottom: 10px;
-}
-
-.lista-presentes h3 {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 35px;
-    font-weight: 500;
-
+    color: #4a5435;
     margin-bottom: 15px;
 }
 
-.lista-presentes-texto {
-    max-width: 500px;
-
-    margin: 0 auto;
-
-    font-size: 13px;
-    line-height: 1.9;
+.presentes h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 500;
+    color: #4a5435;
+    margin: 0 0 25px;
 }
 
-
-/* ========================================
-   BOTÃO PRESENTES
-======================================== */
+.presentes-texto {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #4a5435;
+    max-width: 500px;
+    margin: 0 auto 35px;
+}
 
 .botao-presentes {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     gap: 10px;
 
-    margin-top: 22px;
+    padding: 15px 28px;
 
-    padding: 14px 25px;
-
-    background: #4a5435;
+    background: #aeb863;
     color: #f8f7f0;
 
-    text-decoration: none;
-
-    font-size: 11px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
     font-weight: 600;
+    letter-spacing: 1px;
 
+    text-decoration: none;
     border-radius: 3px;
 
     transition: all 0.3s ease;
 }
 
-.botao-presentes:hover {
-    background: #f8f7f0;
-    color: #4a5435;
+.botao-presentes i {
+    font-size: 14px;
+}
 
+.botao-presentes:hover {
+    background: #4a5435;
     transform: translateY(-2px);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .presentes {
+        padding: 70px 22px;
+    }
+
+    .presentes h2 {
+        font-size: 36px;
+    }
+
+    .presentes-texto {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .botao-presentes {
+        width: 100%;
+        max-width: 280px;
+        padding: 15px 20px;
+    }
+
 }
 
 
