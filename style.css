@@ -1,5 +1,5 @@
 /* ========================================
-   CONFIGURAÇÕES GERAIS
+   RESET
 ======================================== */
 
 * {
@@ -8,24 +8,50 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-    font-family: "Montserrat", sans-serif;
-
-    background-color: #aeb863;
-
+    background: #f8f7f0;
     color: #4a5435;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
 }
 
 
 /* ========================================
    ANIMAÇÕES
 ======================================== */
+
+.animar {
+    animation: aparecer 1.2s ease both;
+}
+
+.atraso-1 {
+    animation-delay: 0.2s;
+}
+
+.atraso-2 {
+    animation-delay: 0.4s;
+}
+
+.atraso-3 {
+    animation-delay: 0.6s;
+}
+
+.animar-scroll {
+    animation: aparecerSuave 1s ease both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+}
 
 @keyframes aparecer {
 
@@ -41,62 +67,18 @@ body {
 
 }
 
-
 @keyframes aparecerSuave {
 
     from {
         opacity: 0;
-        transform: translateY(25px) scale(0.98);
+        transform: translateY(30px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 
-}
-
-
-/* ANIMAÇÃO DA CAPA */
-
-.animar {
-
-    opacity: 0;
-
-    animation:
-        aparecer 1s ease forwards;
-}
-
-
-/* ATRASOS */
-
-.atraso-1 {
-    animation-delay: 0.2s;
-}
-
-
-.atraso-2 {
-    animation-delay: 0.4s;
-}
-
-
-.atraso-3 {
-    animation-delay: 0.6s;
-}
-
-
-/* ANIMAÇÃO AO ENTRAR NA TELA */
-
-.animar-scroll {
-
-    animation:
-        aparecerSuave 1s ease both;
-
-    animation-timeline: view();
-
-    animation-range:
-        entry 10%
-        cover 30%;
 }
 
 
@@ -105,160 +87,80 @@ body {
 ======================================== */
 
 .hero {
-
+    position: relative;
     width: 100%;
-
     height: 100vh;
-
-    min-height: 600px;
+    min-height: 650px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    position: relative;
 
     overflow: hidden;
 
-    background-color: #4a5435;
+    color: #f8f7f0;
 }
 
-
-/* FOTO */
-
 .hero-foto {
-
     position: absolute;
-
     inset: 0;
 
     background-image:
+        linear-gradient(
+            rgba(40, 45, 30, 0.40),
+            rgba(40, 45, 30, 0.55)
+        ),
         url("img/casal.jpg");
 
     background-size: cover;
-
     background-position: center;
+    background-repeat: no-repeat;
 
     transform: scale(1.02);
 }
 
-
-/* ESCURECIMENTO */
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        rgba(
-            40,
-            47,
-            29,
-            0.45
-        );
-}
-
-
-/* CONTEÚDO */
-
 .hero-conteudo {
-
     position: relative;
-
     z-index: 2;
 
-    text-align: center;
+    width: 90%;
+    max-width: 700px;
 
-    color: #f8f7f0;
+    text-align: center;
 
     padding: 30px;
 }
 
-
-/* FRASE PEQUENA */
-
 .hero-frase {
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 10px;
-
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
     font-weight: 500;
-
     letter-spacing: 4px;
 
-    color: #dfe2c7;
-
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-
-/* ========================================
-   NOME DOS NOIVOS
-======================================== */
-
-.hero-conteudo h1 {
-
-    font-family: "Allura", cursive;
-
-    font-size: clamp(
-        75px,
-        10vw,
-        125px
-    );
-
+.hero h1 {
+    font-family: 'Allura', cursive;
+    font-size: clamp(65px, 12vw, 120px);
     font-weight: 400;
-
     line-height: 1;
-
-    letter-spacing: 1px;
-
-    color: #f8f7f0;
-
-    text-shadow:
-        0 4px 18px
-        rgba(
-            0,
-            0,
-            0,
-            0.45
-        );
 }
-
-
-/* LINHA */
 
 .linha {
-
-    width: 65px;
-
+    width: 80px;
     height: 1px;
 
-    background-color: #dfe2c7;
+    margin: 30px auto;
 
-    margin: 25px auto;
+    background: #f8f7f0;
 }
 
-
-/* DATA */
-
 .hero-data {
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 12px;
-
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
     font-weight: 500;
-
-    letter-spacing: 4px;
-
-    color: #f8f7f0;
+    letter-spacing: 5px;
 }
 
 
@@ -267,172 +169,101 @@ body {
 ======================================== */
 
 .dia {
+    background: #aeb863;
+    color: #f8f7f0;
 
-    width: 100%;
-
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-
-    padding: 100px 25px;
-
-    background-color: #aeb863;
+    padding: 100px 20px;
 }
 
-
 .dia-conteudo {
-
     width: 100%;
+    max-width: 850px;
 
-    max-width: 760px;
+    margin: 0 auto;
 
     text-align: center;
 }
 
-
-/* SUBTÍTULO */
-
 .dia-subtitulo {
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 10px;
-
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
     font-weight: 500;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
-    color: #4a5435;
-
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 
-
-/* TÍTULO */
-
 .dia h2 {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: clamp(
-        42px,
-        5vw,
-        58px
-    );
-
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 7vw, 65px);
     font-weight: 500;
 
     line-height: 1.1;
 
-    color: #4a5435;
-
-    margin-bottom: 45px;
+    margin-bottom: 35px;
 }
 
-
-/* ========================================
-   TEXTOS
-======================================== */
-
 .dia-texto {
-
+    width: 100%;
     max-width: 650px;
 
     margin: 0 auto;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 16px;
-
-    font-weight: 400;
-
-    line-height: 1.9;
-
-    color: #4a5435;
 }
-
 
 .dia-texto p {
+    font-size: 14px;
+    line-height: 2;
 
-    margin-bottom: 30px;
+    margin-bottom: 22px;
 }
 
-
 .dia-texto strong {
-
     font-weight: 600;
-
-    color: #4a5435;
 }
 
 
 /* ========================================
-   FOTOS
+   FOTOS DO DIA
 ======================================== */
 
 .fotos-dia {
-
     width: 100%;
-
     max-width: 700px;
 
     margin: 45px auto 55px;
 
     display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 16px;
 }
 
-
 .foto {
-
     width: 100%;
-
     height: 380px;
 
     overflow: hidden;
 
     border-radius: 3px;
-
-    border:
-        4px solid
-        #f8f7f0;
+    border: 4px solid #f8f7f0;
 
     box-shadow:
-        0 8px 20px
-        rgba(
-            74,
-            84,
-            53,
-            0.15
-        );
+        0 8px 20px rgba(74, 84, 53, 0.15);
 }
 
-
 .foto img {
-
     width: 100%;
-
     height: 100%;
 
     display: block;
 
     object-fit: cover;
 
-    transition:
-        transform 0.7s ease;
+    transition: transform 0.7s ease;
 }
 
-
 .foto:hover img {
-
     transform: scale(1.04);
 }
 
@@ -442,270 +273,244 @@ body {
 ======================================== */
 
 .presenca {
+    background: #aeb863;
+    color: #f8f7f0;
 
-    width: 100%;
-
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 100px 25px;
-
-    background-color: #aeb863;
+    padding: 100px 20px;
 }
 
-
 .presenca-conteudo {
-
     width: 100%;
+    max-width: 800px;
 
-    max-width: 850px;
+    margin: 0 auto;
 
     text-align: center;
 }
 
-
-/* SUBTÍTULO */
-
 .presenca-subtitulo {
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 10px;
-
+    font-size: 11px;
     font-weight: 500;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
-    color: #4a5435;
-
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 
-
-/* TÍTULO */
-
 .presenca h2 {
+    font-family: 'Cormorant Garamond', serif;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: clamp(
-        42px,
-        5vw,
-        58px
-    );
-
+    font-size: clamp(42px, 7vw, 65px);
     font-weight: 500;
 
     line-height: 1.1;
 
-    color: #4a5435;
-
     margin-bottom: 30px;
 }
 
-
-/* TEXTO */
-
 .presenca-texto {
+    max-width: 620px;
 
-    max-width: 600px;
+    margin: 0 auto 55px;
 
-    margin:
-        0 auto 55px;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 16px;
-
-    line-height: 1.9;
-
-    color: #4a5435;
+    font-size: 14px;
+    line-height: 2;
 }
 
 
 /* ========================================
-   CARTÃO DE INFORMAÇÕES
+   INFORMAÇÕES
 ======================================== */
 
 .informacoes {
-
     width: 100%;
+    max-width: 600px;
 
-    background-color: #4a5435;
-
-    padding: 50px 35px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 35px;
-
-    border-radius: 5px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(
-            74,
-            84,
-            53,
-            0.22
-        );
+    margin: 0 auto;
 }
-
 
 .informacao {
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 
-    text-align: center;
+    padding: 30px 20px;
+
+    border-top: 1px solid rgba(248, 247, 240, 0.35);
 }
 
-
-/* ÍCONE */
+.informacao:last-child {
+    border-bottom: 1px solid rgba(248, 247, 240, 0.35);
+}
 
 .informacao-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    font-size: 28px;
+    width: 45px;
+    height: 45px;
 
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 }
 
+.informacao-icone i {
+    font-size: 24px;
 
-/* TÍTULO */
+    color: rgb(250, 208, 159);
+}
 
 .informacao-titulo {
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 9px;
-
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 3px;
 
-    color: #dfe2c7;
-
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
-
-
-/* DETALHE */
 
 .informacao-detalhe {
+    font-family: 'Cormorant Garamond', serif;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 24px;
-
+    font-size: 26px;
     font-weight: 500;
 
-    line-height: 1.3;
-
-    color: #f8f7f0;
+    line-height: 1.2;
 }
 
-
-/* ENDEREÇO */
-
 .informacao-endereco {
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 12px;
-
-    line-height: 1.7;
-
-    color: #dfe2c7;
-
     margin-top: 10px;
 
-    margin-bottom: 22px;
+    font-size: 12px;
+    line-height: 1.8;
+
+    opacity: 0.9;
 }
 
 
 /* ========================================
-   BOTÃO MAPS
+   BOTÃO MAPA
 ======================================== */
 
 .botao-mapa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    display: inline-block;
+    gap: 8px;
 
-    padding: 12px 25px;
+    margin-top: 18px;
 
-    background-color: #aeb863;
+    padding: 12px 22px;
 
-    color: #4a5435;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
+    border: 1px solid rgba(248, 247, 240, 0.6);
+    border-radius: 3px;
 
     text-decoration: none;
 
-    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
 
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: all 0.3s ease;
 }
-
 
 .botao-mapa:hover {
-
-    background-color: #dfe2c7;
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 6px 15px
-        rgba(
-            0,
-            0,
-            0,
-            0.15
-        );
+    background: #f8f7f0;
+    color: #4a5435;
 }
 
 
-/* FRASE FINAL */
+/* ========================================
+   LISTA DE PRESENTES
+======================================== */
+
+.lista-presentes {
+    max-width: 600px;
+
+    margin: 60px auto 20px;
+
+    padding: 35px 25px;
+
+    border: 1px solid rgba(248, 247, 240, 0.35);
+}
+
+.lista-presentes-titulo {
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.lista-presentes h3 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 35px;
+    font-weight: 500;
+
+    margin-bottom: 15px;
+}
+
+.lista-presentes-texto {
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* ========================================
+   BOTÃO PRESENTES
+======================================== */
+
+.botao-presentes {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    padding: 14px 25px;
+
+    background: #4a5435;
+    color: #f8f7f0;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    border-radius: 3px;
+
+    transition: all 0.3s ease;
+}
+
+.botao-presentes:hover {
+    background: #f8f7f0;
+    color: #4a5435;
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   FRASE FINAL PRESENÇA
+======================================== */
 
 .presenca-final {
+    margin-top: 55px;
 
-    margin-top: 50px;
+    font-family: 'Cormorant Garamond', serif;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 21px;
-
+    font-size: 24px;
     font-style: italic;
 
-    line-height: 1.7;
-
-    color: #4a5435;
+    line-height: 1.5;
 }
 
 
@@ -714,88 +519,46 @@ body {
 ======================================== */
 
 .confirmacao {
+    background: #4a5435;
+    color: #f8f7f0;
 
-    width: 100%;
-
-    min-height: 70vh;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 100px 25px;
-
-    background-color: #4a5435;
+    padding: 100px 20px;
 }
 
-
 .confirmacao-conteudo {
-
     width: 100%;
-
     max-width: 650px;
+
+    margin: 0 auto;
 
     text-align: center;
 }
 
-
-/* SUBTÍTULO */
-
 .confirmacao-subtitulo {
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 10px;
-
+    font-size: 11px;
     font-weight: 500;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
-    color: #dfe2c7;
-
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 
-
-/* TÍTULO */
-
 .confirmacao h2 {
+    font-family: 'Cormorant Garamond', serif;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: clamp(
-        42px,
-        5vw,
-        58px
-    );
-
+    font-size: clamp(42px, 7vw, 65px);
     font-weight: 500;
 
     line-height: 1.1;
 
-    color: #f8f7f0;
-
     margin-bottom: 30px;
 }
 
-
-/* TEXTO */
-
 .confirmacao-texto {
+    font-size: 14px;
+    line-height: 2;
 
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 16px;
-
-    line-height: 1.9;
-
-    color: #dfe2c7;
-
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 
@@ -804,67 +567,39 @@ body {
 ======================================== */
 
 .botao-confirmar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    display: inline-block;
+    gap: 10px;
 
-    padding: 15px 35px;
+    padding: 15px 28px;
 
-    background-color: #aeb863;
-
+    background: #f8f7f0;
     color: #4a5435;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 11px;
-
-    font-weight: 600;
-
-    letter-spacing: 1.5px;
-
-    text-transform: uppercase;
 
     text-decoration: none;
 
+    font-size: 11px;
+    font-weight: 600;
+
     border-radius: 3px;
 
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: all 0.3s ease;
 }
-
 
 .botao-confirmar:hover {
+    transform: translateY(-2px);
 
-    background-color: #dfe2c7;
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 8px 20px
-        rgba(
-            0,
-            0,
-            0,
-            0.2
-        );
+    background: rgb(250, 208, 159);
 }
 
-
-/* OBSERVAÇÃO */
-
 .confirmacao-observacao {
-
     margin-top: 25px;
-
-    font-family: "Montserrat", sans-serif;
 
     font-size: 11px;
 
-    color: #dfe2c7;
-
-    line-height: 1.6;
+    opacity: 0.75;
 }
 
 
@@ -873,204 +608,96 @@ body {
 ======================================== */
 
 .encerramento {
+    position: relative;
 
     width: 100%;
-
     height: 100vh;
-
     min-height: 650px;
-
-    position: relative;
 
     overflow: hidden;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    background-color: #4a5435;
+    color: #f8f7f0;
+
+    text-align: center;
 }
 
-
-/* FOTO */
-
 .encerramento-foto {
-
     position: absolute;
-
     inset: 0;
 }
 
-
 .encerramento-foto img {
-
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
 
     object-position: center;
-
-    display: block;
-
-    transform: scale(1.02);
-
-    transition:
-        transform 8s ease;
 }
-
-
-.encerramento:hover img {
-
-    transform: scale(1.06);
-}
-
-
-/* ESCURECIMENTO */
 
 .encerramento-overlay {
-
     position: absolute;
-
     inset: 0;
 
     background:
-        linear-gradient(
-            to bottom,
-            rgba(
-                40,
-                47,
-                29,
-                0.15
-            ),
-            rgba(
-                40,
-                47,
-                29,
-                0.68
-            )
-        );
+        rgba(40, 45, 30, 0.58);
 }
 
-
-/* CONTEÚDO */
-
 .encerramento-conteudo {
-
     position: relative;
-
     z-index: 2;
 
+    width: 90%;
     max-width: 700px;
 
     padding: 30px;
-
-    text-align: center;
-
-    color: #f8f7f0;
 }
 
-
-/* FRASE */
-
 .encerramento-frase {
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 10px;
-
+    font-size: 11px;
     font-weight: 500;
 
-    letter-spacing: 4px;
-
-    line-height: 1.6;
-
-    color: #dfe2c7;
+    letter-spacing: 3px;
 
     margin-bottom: 25px;
 }
 
-
-/* LINHA */
-
 .encerramento-linha {
-
-    width: 55px;
-
+    width: 70px;
     height: 1px;
 
-    background-color: #dfe2c7;
+    margin: 25px auto;
 
-    margin:
-        0 auto 25px;
+    background: #f8f7f0;
 }
 
-
-/* NOME */
-
 .encerramento h2 {
+    font-family: 'Allura', cursive;
 
-    font-family: "Allura", cursive;
-
-    font-size: clamp(
-        65px,
-        9vw,
-        110px
-    );
-
+    font-size: clamp(60px, 11vw, 110px);
     font-weight: 400;
 
     line-height: 1;
-
-    color: #f8f7f0;
-
-    text-shadow:
-        0 4px 18px
-        rgba(
-            0,
-            0,
-            0,
-            0.4
-        );
 }
-
-
-/* DATA */
 
 .encerramento-data {
-
     margin-top: 25px;
 
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 11px;
-
-    font-weight: 500;
-
-    letter-spacing: 4px;
-
-    color: #f8f7f0;
+    font-size: 12px;
+    letter-spacing: 5px;
 }
 
-
-/* FRASE FINAL */
-
 .encerramento-final {
+    margin-top: 30px;
 
-    margin-top: 35px;
+    font-family: 'Cormorant Garamond', serif;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 22px;
-
+    font-size: 25px;
     font-style: italic;
-
-    color: #f8f7f0;
 }
 
 
@@ -1081,390 +708,131 @@ body {
 @media (max-width: 600px) {
 
 
-    /* ====================================
-       CAPA
-    ==================================== */
+    /* CAPA */
 
     .hero {
-
-        height: 100svh;
-
-        min-height: 550px;
+        min-height: 600px;
     }
 
-
     .hero-foto {
-
         background-position: center;
     }
 
-
-    .hero::after {
-
-        background:
-            rgba(
-                40,
-                47,
-                29,
-                0.48
-            );
-    }
-
-
     .hero-conteudo {
-
-        padding: 25px;
+        padding: 20px;
     }
-
 
     .hero-frase {
-
-        font-size: 8px;
-
+        font-size: 9px;
         letter-spacing: 3px;
-
-        margin-bottom: 18px;
     }
 
-
-    .hero-conteudo h1 {
-
-        font-size: 65px;
-
-        letter-spacing: 0;
+    .hero h1 {
+        font-size: 70px;
     }
-
-
-    .linha {
-
-        width: 55px;
-
-        margin: 22px auto;
-    }
-
 
     .hero-data {
-
-        font-size: 10px;
-
-        letter-spacing: 3px;
+        font-size: 11px;
+        letter-spacing: 4px;
     }
 
 
-
-    /* ====================================
-       DIA
-    ==================================== */
+    /* DIA */
 
     .dia {
-
-        min-height: auto;
-
-        padding: 80px 22px;
+        padding: 80px 18px;
     }
-
-
-    .dia-subtitulo {
-
-        font-size: 9px;
-
-        letter-spacing: 3px;
-
-        margin-bottom: 15px;
-    }
-
 
     .dia h2 {
+        font-size: 44px;
+    }
 
-        font-size: 40px;
-
-        margin-bottom: 35px;
+    .dia-texto p {
+        font-size: 13px;
+        line-height: 1.9;
     }
 
 
-    .dia-texto {
-
-        font-size: 15px;
-
-        line-height: 1.85;
-    }
-
-
-
-    /* ====================================
-       FOTOS
-    ==================================== */
+    /* FOTOS */
 
     .fotos-dia {
-
         display: flex;
-
         flex-direction: column;
 
         gap: 14px;
 
-        margin:
-            40px auto 45px;
+        margin: 40px auto 45px;
     }
-
 
     .foto {
-
         height: 430px;
 
-        border:
-            4px solid
-            #f8f7f0;
+        border: 4px solid #f8f7f0;
     }
 
 
-
-    /* ====================================
-       PRESENÇA
-    ==================================== */
+    /* PRESENÇA */
 
     .presenca {
-
-        min-height: auto;
-
-        padding: 80px 22px;
+        padding: 80px 18px;
     }
-
-
-    .presenca-subtitulo {
-
-        font-size: 9px;
-
-        letter-spacing: 3px;
-    }
-
 
     .presenca h2 {
-
-        font-size: 40px;
-
-        margin-bottom: 25px;
+        font-size: 44px;
     }
-
 
     .presenca-texto {
-
-        font-size: 15px;
-
-        line-height: 1.85;
-
-        margin-bottom: 40px;
+        font-size: 13px;
     }
-
-
-
-    /* ====================================
-       CARTÃO
-    ==================================== */
-
-    .informacoes {
-
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-
-        padding: 40px 25px;
-    }
-
 
     .informacao {
-
-        padding-bottom: 35px;
-
-        border-bottom:
-            1px solid
-            rgba(
-                223,
-                226,
-                199,
-                0.25
-            );
+        padding: 28px 15px;
     }
-
-
-    .informacao:last-child {
-
-        padding-bottom: 0;
-
-        border-bottom: none;
-    }
-
 
     .informacao-detalhe {
-
-        font-size: 23px;
+        font-size: 24px;
     }
 
 
-    .botao-mapa {
+    /* LISTA DE PRESENTES */
 
-        width: 100%;
+    .lista-presentes {
+        padding: 30px 18px;
+    }
 
-        max-width: 220px;
-
-        padding: 13px 20px;
+    .lista-presentes h3 {
+        font-size: 32px;
     }
 
 
-    .presenca-final {
-
-        margin-top: 40px;
-
-        font-size: 20px;
-    }
-
-
-
-    /* ====================================
-       CONFIRMAÇÃO
-    ==================================== */
+    /* CONFIRMAÇÃO */
 
     .confirmacao {
-
-        min-height: auto;
-
-        padding: 80px 22px;
+        padding: 80px 18px;
     }
-
-
-    .confirmacao-subtitulo {
-
-        font-size: 9px;
-
-        letter-spacing: 3px;
-    }
-
 
     .confirmacao h2 {
-
-        font-size: 40px;
+        font-size: 44px;
     }
-
 
     .confirmacao-texto {
-
-        font-size: 15px;
-
-        line-height: 1.85;
+        font-size: 13px;
     }
 
 
-    .botao-confirmar {
-
-        width: 100%;
-
-        max-width: 280px;
-
-        padding: 15px 25px;
-    }
-
-
-
-    /* ====================================
-       ENCERRAMENTO
-    ==================================== */
+    /* ENCERRAMENTO */
 
     .encerramento {
-
-        height: 100svh;
-
         min-height: 600px;
     }
 
-
-    .encerramento-foto img {
-
-        object-position: center;
-    }
-
-
-    .encerramento-overlay {
-
-        background:
-            linear-gradient(
-                to bottom,
-                rgba(
-                    40,
-                    47,
-                    29,
-                    0.12
-                ),
-                rgba(
-                    40,
-                    47,
-                    29,
-                    0.72
-                )
-            );
-    }
-
-
-    .encerramento-conteudo {
-
-        padding: 25px;
-    }
-
-
     .encerramento-frase {
-
-        font-size: 8px;
-
-        letter-spacing: 3px;
+        font-size: 9px;
+        letter-spacing: 2.5px;
     }
-
 
     .encerramento h2 {
-
-        font-size: 65px;
-    }
-
-
-    .encerramento-data {
-
-        font-size: 10px;
-
-        letter-spacing: 3px;
-    }
-
-
-    .encerramento-final {
-
-        font-size: 20px;
-
-        margin-top: 30px;
-    }
-
-}
-
-
-/* ========================================
-   ACESSIBILIDADE
-======================================== */
-
-@media (
-    prefers-reduced-motion: reduce
-) {
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration:
-            0.01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        scroll-behavior:
-            auto !important;
-
-        transition-duration:
-            0.01ms !important;
+        font-size: 70px;
     }
 
 }
