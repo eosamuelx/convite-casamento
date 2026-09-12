@@ -1080,3 +1080,76 @@ a {
     }
 
 }
+
+/* ========================================
+   VERSÍCULO DA CAPA
+======================================== */
+
+.hero-versiculo {
+    position: absolute;
+
+    left: 22px;
+    bottom: 28px;
+
+    z-index: 3;
+
+    width: calc(100% - 44px);
+    max-width: 310px;
+
+    color: #f8f7f0;
+
+    text-align: left;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.hero-versiculo p {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 17px;
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.35;
+
+    margin-bottom: 8px;
+}
+
+.hero-versiculo span {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+
+    opacity: 0.9;
+}
+
+
+/* ========================================
+   VERSÍCULO — DESKTOP
+======================================== */
+
+@media (min-width: 900px) {
+
+    .hero-versiculo {
+        left: 45px;
+        bottom: 40px;
+
+        max-width: 390px;
+    }
+
+    .hero-versiculo p {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .hero-versiculo span {
+        font-size: 10px;
+    }
+
+}
