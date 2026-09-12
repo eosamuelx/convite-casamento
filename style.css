@@ -1,6 +1,6 @@
-/* ========================================
+/* =========================================================
    RESET
-======================================== */
+========================================================= */
 
 * {
     margin: 0;
@@ -13,28 +13,1211 @@ html {
 }
 
 body {
+    font-family: 'Montserrat', sans-serif;
     background: #f8f7f0;
     color: #4a5435;
-    font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
 }
 
 img {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
 }
 
 a {
-    color: inherit;
+    text-decoration: none;
 }
 
 
-/* ========================================
+/* =========================================================
+   PALETA
+========================================================= */
+
+:root {
+
+    --verde: #aeb863;
+    --verde-escuro: #4a5435;
+    --branco: #f8f7f0;
+    --detalhe: #dfe2c7;
+
+}
+
+
+/* =========================================================
    ANIMAÇÕES
-======================================== */
+========================================================= */
 
 .animar {
-    animation: aparecer 1.2s ease both;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 1s ease forwards;
+}
+
+.atraso-1 {
+    animation-delay: .2s;
+}
+
+.atraso-2 {
+    animation-delay: .4s;
+}
+
+.atraso-3 {
+    animation-delay: .6s;
+}
+
+@keyframes aparecer {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   ANIMAÇÃO AO ROLAR
+========================================================= */
+
+.animar-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@supports (animation-timeline: view()) {
+
+    .animar-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+
+        animation: aparecer-scroll linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 30%;
+    }
+
+}
+
+@keyframes aparecer-scroll {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   ELEMENTOS GERAIS
+========================================================= */
+
+.secao-subtitulo {
+    display: block;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   1. HERO / CAPA
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 100svh;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #4a5435;
+
+}
+
+
+/* Foto da capa */
+
+.hero-foto {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(35, 40, 25, .32),
+            rgba(35, 40, 25, .48)
+        ),
+        url("img/casal.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+/* Conteúdo central */
+
+.hero-conteudo {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 0 22px;
+
+    text-align: center;
+
+    color: var(--branco);
+
+}
+
+
+/* Nomes */
+
+.hero-conteudo h1 {
+
+    font-family: 'Allura', cursive;
+
+    font-size: clamp(68px, 19vw, 110px);
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    text-shadow:
+        0 3px 15px rgba(0, 0, 0, .3);
+
+}
+
+
+/* Linha */
+
+.linha {
+
+    width: 55px;
+    height: 1px;
+
+    margin: 25px auto 18px;
+
+    background: var(--branco);
+
+    opacity: .8;
+}
+
+
+/* Data */
+
+.hero-data {
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+}
+
+
+/* =========================================================
+   VERSÍCULO NA CAPA
+========================================================= */
+
+.hero-versiculo {
+
+    position: absolute;
+
+    left: 22px;
+    bottom: 28px;
+
+    z-index: 3;
+
+    width: calc(100% - 44px);
+
+    max-width: 310px;
+
+    color: var(--branco);
+
+    text-align: left;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, .45);
+
+}
+
+
+/* Texto do versículo */
+
+.hero-versiculo p {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+    font-style: italic;
+
+    line-height: 1.35;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* Referência */
+
+.hero-versiculo span {
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+
+    opacity: .9;
+
+}
+
+
+/* =========================================================
+   2. COMO SERÁ O NOSSO DIA
+========================================================= */
+
+.dia {
+
+    padding: 80px 22px 90px;
+
+    background: var(--verde);
+
+    color: var(--verde-escuro);
+
+}
+
+
+/* Cabeçalho */
+
+.dia-cabecalho {
+
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+
+}
+
+
+.dia-cabecalho h2 {
+
+    margin-top: 12px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(44px, 12vw, 64px);
+
+    font-weight: 500;
+
+    line-height: .95;
+
+}
+
+
+/* =========================================================
+   BLOCOS DO DIA
+========================================================= */
+
+.dia-bloco {
+
+    max-width: 760px;
+
+    margin: 0 auto 18px;
+
+    padding: 25px 20px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    border: 1px solid rgba(74, 84, 53, .35);
+
+    background: rgba(248, 247, 240, .18);
+
+}
+
+
+/* Ícone */
+
+.dia-icone {
+
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--verde-escuro);
+
+    color: var(--branco);
+
+    font-size: 16px;
+
+}
+
+
+/* Texto */
+
+.dia-texto h3 {
+
+    margin-bottom: 8px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 27px;
+
+    font-weight: 600;
+
+}
+
+
+.dia-texto p {
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+}
+
+
+/* =========================================================
+   FOTO DO DIA
+========================================================= */
+
+.fotos-dia {
+
+    max-width: 760px;
+
+    margin: 45px auto 30px;
+
+}
+
+
+.foto {
+
+    width: 100%;
+
+    height: 430px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border: 5px solid var(--branco);
+
+}
+
+
+/* Frase final */
+
+.dia-final {
+
+    max-width: 650px;
+
+    margin: 30px auto 0;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 24px;
+
+    font-style: italic;
+
+    line-height: 1.35;
+
+}
+
+
+/* =========================================================
+   3. PRESENÇA / INFORMAÇÕES
+========================================================= */
+
+.presenca {
+
+    padding: 80px 22px 90px;
+
+    background: var(--verde-escuro);
+
+    color: var(--branco);
+
+}
+
+
+/* Cabeçalho */
+
+.presenca-cabecalho {
+
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+
+}
+
+
+.presenca-cabecalho h2 {
+
+    margin-top: 12px;
+    margin-bottom: 20px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(42px, 11vw, 62px);
+
+    font-weight: 500;
+
+    line-height: .98;
+
+}
+
+
+.presenca-cabecalho > p {
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    opacity: .9;
+
+}
+
+
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
+.informacao {
+
+    max-width: 760px;
+
+    margin: 0 auto 15px;
+
+    padding: 23px 20px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    background: rgba(174, 184, 99, .14);
+
+    border: 1px solid rgba(248, 247, 240, .15);
+
+}
+
+
+/* Ícone */
+
+.informacao-icone {
+
+    flex-shrink: 0;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--verde);
+
+    color: var(--verde-escuro);
+
+    border-radius: 50%;
+
+}
+
+
+/* Label */
+
+.informacao span {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* Título */
+
+.informacao strong {
+
+    display: block;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    line-height: 1.15;
+
+}
+
+
+/* Texto */
+
+.informacao p {
+
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    opacity: .85;
+
+}
+
+
+/* =========================================================
+   BOTÃO MAPA
+========================================================= */
+
+.botao-mapa {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+    padding: 11px 15px;
+
+    background: var(--verde);
+
+    color: var(--verde-escuro);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    transition: .25s ease;
+
+}
+
+
+.botao-mapa:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/* Frase */
+
+.presenca-final {
+
+    max-width: 600px;
+
+    margin: 35px auto 0;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+
+    font-style: italic;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================================
+   4. CONFIRMAÇÃO
+========================================================= */
+
+.confirmacao {
+
+    padding: 90px 22px;
+
+    background: var(--branco);
+
+    color: var(--verde-escuro);
+
+}
+
+
+.confirmacao-conteudo {
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+.confirmacao h2 {
+
+    margin-top: 12px;
+    margin-bottom: 22px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(44px, 12vw, 64px);
+
+    font-weight: 500;
+
+    line-height: .95;
+
+}
+
+
+.confirmacao p {
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+.confirmacao p + p {
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.botao-principal {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+    padding: 16px 24px;
+
+    background: var(--verde);
+
+    color: var(--verde-escuro);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    transition: .25s ease;
+
+}
+
+
+.botao-principal:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================================
+   5. PRESENTES
+========================================================= */
+
+.presentes {
+
+    padding: 90px 22px;
+
+    background: var(--verde);
+
+    color: var(--verde-escuro);
+
+}
+
+
+.presentes-conteudo {
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+.presentes h2 {
+
+    margin-top: 12px;
+    margin-bottom: 20px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(44px, 12vw, 64px);
+
+    font-weight: 500;
+
+    line-height: .95;
+
+}
+
+
+.presentes p {
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+/* Botão presentes */
+
+.botao-presente {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+    padding: 16px 24px;
+
+    background: var(--verde-escuro);
+
+    color: var(--branco);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    transition: .25s ease;
+
+}
+
+
+.botao-presente:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================================
+   6. ENCERRAMENTO
+========================================================= */
+
+.encerramento {
+
+    position: relative;
+
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: var(--verde-escuro);
+
+    color: var(--branco);
+
+}
+
+
+/* Foto */
+
+.encerramento > img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+}
+
+
+/* Overlay */
+
+.encerramento-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(35, 40, 25, .48),
+            rgba(35, 40, 25, .68)
+        );
+
+}
+
+
+/* Conteúdo */
+
+.encerramento-conteudo {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 30px 22px;
+
+    text-align: center;
+
+    text-shadow:
+        0 3px 12px rgba(0, 0, 0, .35);
+
+}
+
+
+.encerramento-conteudo > span {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+}
+
+
+.encerramento-conteudo h2 {
+
+    font-family: 'Allura', cursive;
+
+    font-size: clamp(70px, 20vw, 115px);
+
+    font-weight: 400;
+
+    line-height: .9;
+
+}
+
+
+.encerramento-conteudo p {
+
+    margin-top: 20px;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+}
+
+
+.encerramento-conteudo small {
+
+    display: block;
+
+    margin-top: 35px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 22px;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .dia,
+    .presenca,
+    .confirmacao,
+    .presentes {
+
+        padding-left: 40px;
+        padding-right: 40px;
+
+    }
+
+
+    .foto {
+
+        height: 500px;
+
+    }
+
+
+    .dia-bloco,
+    .informacao {
+
+        padding: 28px 25px;
+
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 900px) {
+
+    .hero-conteudo h1 {
+
+        font-size: 115px;
+
+    }
+
+
+    .hero-versiculo {
+
+        left: 45px;
+
+        bottom: 40px;
+
+        max-width: 390px;
+
+    }
+
+
+    .hero-versiculo p {
+
+        font-size: 20px;
+
+        line-height: 1.4;
+
+    }
+
+
+    .hero-versiculo span {
+
+        font-size: 10px;
+
+    }
+
+
+    .dia,
+    .presenca,
+    .confirmacao,
+    .presentes {
+
+        padding-top: 110px;
+
+        padding-bottom: 110px;
+
+    }
+
+
+    .dia-bloco,
+    .informacao {
+
+        padding: 28px 30px;
+
+    }
+
+
+    .foto {
+
+        height: 570px;
+
+    }
+
+
+    .dia-texto p,
+    .informacao p,
+    .presenca-cabecalho > p,
+    .confirmacao p,
+    .presentes p {
+
+        font-size: 16px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TELAS MUITO PEQUENAS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .hero-conteudo h1 {
+
+        font-size: 62px;
+
+    }
+
+
+    .hero-data {
+
+        font-size: 10px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .hero-versiculo {
+
+        left: 18px;
+
+        bottom: 20px;
+
+        width: calc(100% - 36px);
+
+    }
+
+
+    .hero-versiculo p {
+
+        font-size: 15px;
+
+    }
+
+
+    .hero-versiculo span {
+
+        font-size: 8px;
+
+    }
+
+
+    .dia,
+    .presenca,
+    .confirmacao,
+    .presentes {
+
+        padding-left: 18px;
+
+        padding-right: 18px;
+
+    }
+
+
+    .dia-bloco,
+    .informacao {
+
+        padding: 20px 16px;
+
+        gap: 13px;
+
+    }
+
+
+    .dia-icone,
+    .informacao-icone {
+
+        width: 36px;
+        height: 36px;
+
+        font-size: 14px;
+
+    }
+
+
+    .dia-texto h3 {
+
+        font-size: 24px;
+
+    }
+
+
+    .dia-texto p,
+    .informacao p {
+
+        font-size: 13px;
+
+    }
+
+
+    .foto {
+
+        height: 380px;
+
+    }
+
+}    animation: aparecer 1.2s ease both;
 }
 
 .atraso-1 {
